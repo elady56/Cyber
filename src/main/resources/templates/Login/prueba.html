@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="txt" hidden="true">
+   {{token}}
+</div>
+
+<div id="id" hidden="true">
+    {{id}}
+</div>
+
+
+
+</body>
+<script>
+    var token=document.getElementById("txt");
+    localStorage.setItem("token",token.innerText);
+    var id=document.getElementById("id").innerText;
+    window.location.href="/logged/"+ parseInt(id);
+</script>
+</html>

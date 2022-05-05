@@ -1,0 +1,60 @@
+<!DOCTYPE html >
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Us</title>
+    <link rel="import" href="other.html">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+
+    <script src="/js/jquery.js"></script>
+    <script>
+        $(function (){
+            $(".header").load()("header.html");
+        });
+    </script>
+</head>
+<body>
+
+
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        <a href="/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-black">Learn more about us</a>
+        <a href="/Login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+    </div>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href= "/" class="w3-bar-item w3-button w3-padding-large">Home</a>
+        <a href="/club" class="w3-bar-item w3-button w3-padding-large">Club Space</a>
+        <a href="/lmau" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
+        <a href="/Login" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+    </div>
+</div>
+<!-- Header -->
+<header class="w3-container w3-black w3-center" style="padding:10% 0px">
+    <h1 class="w3-margin w3-jumbo w3-w3-light-grey">Cyber community</h1>
+    <p class="w3-xlarge">Learn more about us</p>
+    <img src="https://www.secplicity.org/wp-content/uploads/2018/06/iStock-652217752-960x640.jpg" width="500" height="250" >
+</header>
+<div class="header"></div>
+
+<div style="padding-left:20px">
+<h1>Who are we?</h1>
+<p>We are a group of friends that decided to make community for an easier way of connecting with people</p>
+
+<h1>What can you do?</h1>
+<p>In our web you can create new clubs regarding interesting subjects, as well as writing blog posts in the existing clubs about news on the topics</p>
+</div>
+</body>
+</html>

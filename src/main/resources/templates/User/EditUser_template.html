@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
+        {{#notAdmin}}
+        <a href="/logged/{{user.id_User}}" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/logged/{{user.id_User}}/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        <a href="/logged/{{user.id_User}}/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/user" class="w3-bar-item w3-button w3-padding-large w3-black"> Profile</a>
+        {{/notAdmin}}
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/logged/{{user.id_User}}/admin/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        <a href="/logged/{{user.id_User}}/admin/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/admin/user" class="w3-bar-item w3-button w3-padding-large w3-black"> Profile</a>
+        <a href="/logged/{{user.id_User}}/admin/user/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        {{/admin}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
+    </div>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        {{#notAdmin}}
+        <a href="/logged/{{user.id_User}}" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/logged/{{user.id_User}}/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        <a href="/logged/{{user.id_User}}/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/user" class="w3-bar-item w3-button w3-padding-large w3-black"> Profile</a>
+        {{/notAdmin}}
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin" class="w3-bar-item w3-button w3-padding-large w3-hover-white"> <b><u>Home</u></b> </a>
+        <a href="/logged/{{user.id_User}}/admin/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        <a href="/logged/{{user.id_User}}/admin/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/admin/user" class="w3-bar-item w3-button w3-padding-large w3-black"> Profile</a>
+        <a href="/logged/{{user.id_User}}/admin/user/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        {{/admin}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
+    </div>
+</div>
+<!-- Header -->
+<header class="w3-container w3-black w3-center" style="padding:128px 16px">
+    <h1 class="w3-margin w3-jumbo">Edit Profile</h1>
+</header>
+
+
+    <form action="/user/updated/{{U_id}}/user" method="post" class="container">
+        <label> Nickname: <br>
+            <input type='text' name='nickname' />
+        </label>
+        <br>
+        <br>
+        <label>Email: <br>
+            <input type='email' name='email' />
+        </label>
+        <br>
+        <br>
+
+        <label> Biography: <br>
+             <textarea name='biography' rows=5 cols=40 ></textarea>
+        </label>
+        <br>
+        <br>
+
+        <script src="/ckeditor/ckeditor.js"></script>
+        <script>
+            CKEDITOR.replace('biography');
+        </script>
+
+        <button type="submit">Create</button>
+        <a href="javascript:history.back()">
+            <button type="button" class="cancelbtn">Cancel</button>
+        </a>
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+
+  <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body>
+
+
+<form action="/user/check" class="container">
+  <!-- maybe red color-->
+  <div class="log">{{#loginError}} {{.}} {{/loginError}}</div>
+  <br>
+  <div class="log">Login</div>
+  <div class="imgcontainer">
+    <img src="https://obs.line-scdn.net/0hj6PgUD5MNRltHh2oMq9KTldINnZeciYaCShkBz1way0Ue3VLUix9d04fby0SJ3JHBHt6eU8ZLigSLnFJWS19/w644" alt="Avatar" class="avatar">
+  </div>
+
+  <p>
+  <label for="nickname"><b>Username</b></label>
+  <input type="text" id="nickname" placeholder="   Enter Nickname" name="nickname" required>
+    <br>
+  <label for="password"><b>Password</b></label>
+  <input type="password" id="password" placeholder="   Enter Password" name="password" required>
+    <br>
+  <button id="sub" type="submit" onclick="login()" >Login</button>
+  </p>
+
+  <a href="javascript:history.back()">
+      <button type="button" class="cancelbtn">Cancel</button>
+  </a>
+
+  <span class="padding">New here? <a href="/signup">Create account</a></span>
+
+
+</form>
+
+
+</body>
+<script>
+  login =function () {
+    var url='/user/check';
+    axios({ method: "get",
+              url: url,
+              params: {
+                nickname: this.nickname,
+                password: this.password,
+              }
+            }
+    ).then((response) => {
+      console.log(response)
+      this.$message({ message: "s", type: 'success' });
+      localStorage.setItem('SET_TOKEN', res.data.data.token)
+      if(response.data.data){ this.$router.push({name:'HelloWorld',params:{name: this.nickname}});}
+      else{
+        this.password="";
+        alert("INVALID CREDENTIAL")
+      }
+
+
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
+
+
+
+</script>
+</html>

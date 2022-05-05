@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+</head>
+
+<body>
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-card w3-left-align w3-large w3-indigo">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-indigo w3-large" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin" class="w3-bar-item w3-button w3-padding-large w3-black"> Home</a>
+        {{/admin}}
+        {{#notAdmin}}
+        <a href="/logged/{{user.id_User}}" class="w3-bar-item w3-button w3-padding-large w3-black"> <b><u>Home</u></b> </a>
+        {{/notAdmin}}
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        {{/admin}}
+        {{#notAdmin}}
+        <a href="/logged/{{user.id_User}}/club" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Club Space</a>
+        {{/notAdmin}}
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/admin/user" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        {{/admin}}
+        {{#notAdmin}}
+        <a href="/logged/{{user.id_User}}/lmau" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Learn more about us</a>
+        <a href="/logged/{{user.id_User}}/user" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        {{/notAdmin}}
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin/user/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        {{/admin}}
+        <a href="/logout" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
+    </div>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="/logged/{{user.id_User}}" class="w3-bar-item w3-button w3-padding-large">Home</a>
+        <a href="/logged/{{user.id_User}}/admin/club" class="w3-bar-item w3-button w3-padding-large">Club Space</a>
+        <a href="/logged/{{user.id_User}}/admin/lmau" class="w3-bar-item w3-button w3-padding-large">Learn more about us</a>
+        {{#logged}}
+        <a href="/logged/{{user.id_User}}/user" class="w3-bar-item w3-button w3-padding-large"> Profile</a>
+        {{/logged}}
+        {{#admin}}
+        <a href="/logged/{{user.id_User}}/admin/user/users" class="w3-bar-item w3-button w3-padding-large"> All users</a>
+        {{/admin}}
+        {{#notlogged}}
+        <a href="/" class="w3-bar-item w3-button w3-padding-large"> Log in</a>
+        {{/notlogged}}
+        {{#logged}}
+        <a href="/logout" class="w3-bar-item w3-button w3-padding-large"> Log out</a>
+        {{/logged}}
+    </div>
+</div>
+<!-- Header -->
+<header class="w3-container w3-black w3-center" style="padding:10% 0px">
+    <h1 class="w3-margin w3-jumbo w3-w3-light-grey">Cyber community</h1>
+    <p class="w3-xlarge">Welcome to our page</p>
+    <br>
+    <br>
+    <img src="https://media1.giphy.com/media/hqUM3se8oiu6gCbm6Q/giphy.gif" width="400" height="400" ></header>
+<div class="header"></div>
+
+
+<script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
+</script>
+</script>
+<!-- Random image generation-->
+<a href="interaction.html" target="popup" onClick="window.open(this.href, this.target, 'width=300,height=400'); return false;">
+    <p>See  <span></span> </p>
+    <script>
+        var span = document.getElementsByTagName('span')[0];
+        span.textContent = 'random images'; // change DOM text content
+        span.style.display = 'inline';  // change CSSOM property
+        // create a new element, style it, and append it to the DOM
+        var loadTime = document.createElement('div');
+        loadTime.textContent = 'You loaded this page on: ' + new Date();
+        loadTime.style.color = 'blue';
+        document.body.appendChild(loadTime);
+    </script>
+</a>
+</body>
+</html>
